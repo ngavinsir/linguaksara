@@ -1,6 +1,6 @@
 <div 
-    class="flex flex-col items-center pt-8 w-full h-full max-w-5xl mx-auto 
-    px-2 sm:px-12 md:px-16 lg:px-20"
+    class="flex flex-col items-center py-8 w-full h-full max-w-5xl mx-auto 
+    px-2 sm:px-12 md:px-16 lg:px-20 relative"
 >
     <h1 class="font-sans text-white font-bold text-5xl">Progress</h1>
     <div class="flex space-x-4 sm:space-x-8 mt-6 sm:mt-12 self-start items-center">
@@ -35,23 +35,25 @@
         </span>
     </div>
 
-    <table class="mt-4 w-full divide-y divide-dark-4 rounded-xl overflow-hidden bg-dark-7">
+    <table class="mt-4 w-full divide-y divide-dark-4 rounded-xl bg-dark-7 relative">
         <thead>
-            <tr class="bg-dark-6">
+            <tr>
                 <th 
                     class="px-3 lg:px-6 py-3 text-left text-sm lg:text-base font-semibold 
-                    text-dark-1 uppercase flex-grow" 
+                    text-dark-1 uppercase flex-grow sticky top-0 bg-dark-6 rounded-tl-xl" 
                     style={`min-width: ${screenWidth < 400 || (screenWidth >= 640 && screenWidth < 768) ? 8 : 15}rem`}>
                     Name
                 </th>
                 {#each screenWidth < 640 ? selectItems.slice(selected, selected+1) : selectItems as selectItem (selectItem.value)}
-                    <th class="px-3 lg:px-6 py-3 text-left text-sm lg:text-base font-semibold text-dark-1 uppercase">
+                    <th 
+                        class="px-3 lg:px-6 py-3 text-left text-sm lg:text-base font-semibold 
+                        text-dark-1 uppercase sticky top-0 bg-dark-6 whitespace-no-wrap">
                         {selectItem.label}
                     </th>
                 {/each}
                 <th 
                     class="px-3 lg:px-6 py-3 text-left text-sm lg:text-base font-semibold 
-                    text-accent-5 uppercase">
+                    text-accent-5 uppercase sticky top-0 bg-dark-6 rounded-tr-xl">
                     Total
                 </th>
             </tr>
@@ -123,7 +125,7 @@
 
     getProgress();
     async function getProgress() {
-        const url = '/clickbait/label/progress/5?start=2020-07-06T00:00:00%2b00:00';
+        const url = '/clickbait/label/progress/5?start=2020-11-09T00:00:00%2b00:00';
         try {
             const { data: newData } = await axios.get(url);
             processData(newData);
@@ -145,6 +147,8 @@
                 }
             });
         });
-        progress = [...newData.entries()];
+        progress = [...newData.entries()].sort((a, b) => {
+            return a[0].toLowerCase().localeCompare(b[0].toLowerCase());
+        });
     }
 </script>
