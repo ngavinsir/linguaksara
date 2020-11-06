@@ -19,7 +19,7 @@
             <div class={showDropdown ? "dropdown-wrapper" : "hidden"}>
                 {#each selectItems as selectItem, i (selectItem.value)}
                     <span 
-                        class="font-medium text-accent-5 py-1 cursor-pointer hover:underline"
+                        class="font-medium text-white py-1 cursor-pointer hover:underline"
                         on:click={() => {
                             selected = i;
                             showDropdown = false;
@@ -35,14 +35,17 @@
         </span>
     </div>
 
-    <table class="mt-4 w-full divide-y divide-dark-4 rounded-xl bg-dark-7 relative">
+    <table class="mt-4 w-full rounded-xl bg-dark-7 relative">
         <thead>
             <tr>
                 <th 
-                    class="px-3 lg:px-6 py-3 text-left text-sm lg:text-base font-semibold 
-                    text-dark-1 uppercase flex-grow sticky top-0 bg-dark-6 rounded-tl-xl" 
-                    style={`min-width: ${screenWidth < 400 || (screenWidth >= 640 && screenWidth < 768) ? 8 : 15}rem`}>
-                    Name
+                    class="text-left text-sm lg:text-base font-semibold 
+                    text-dark-1 uppercase sticky top-0 bg-dark-8" 
+                    style={`min-width: ${screenWidth < 400 || (screenWidth >= 640 && screenWidth < 768) ? 8 : 15}rem`}
+                >
+                    <div class="px-3 lg:px-6 py-3 rounded-tl-xl bg-dark-6 w-full h-full absolute top-0 left-0">
+                        Name
+                    </div>
                 </th>
                 {#each screenWidth < 640 ? selectItems.slice(selected, selected+1) : selectItems as selectItem (selectItem.value)}
                     <th 
@@ -52,9 +55,13 @@
                     </th>
                 {/each}
                 <th 
-                    class="px-3 lg:px-6 py-3 text-left text-sm lg:text-base font-semibold 
-                    text-accent-5 uppercase sticky top-0 bg-dark-6 rounded-tr-xl">
-                    Total
+                    class="text-left text-sm lg:text-base font-semibold w-8
+                    text-accent-5 uppercase sticky top-0 bg-dark-8"
+                    style="min-width: 5rem"
+                >
+                    <div class="px-3 lg:px-6 py-3 rounded-tr-xl bg-dark-6 w-full h-full absolute top-0 left-0">
+                        Total
+                    </div>
                 </th>
             </tr>
         </thead>
@@ -93,7 +100,7 @@
 
 <style type="text/postcss">
     .dropdown-wrapper {
-        @apply flex flex-col bg-dark-7 absolute left-0 rounded-lg shadow-xl p-2 px-4 min-w-full;
+        @apply flex flex-col bg-dark-5 absolute left-0 rounded-lg shadow-xl p-2 px-4 min-w-full z-10;
     }
 </style>
 
