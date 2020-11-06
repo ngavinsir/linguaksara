@@ -41,7 +41,6 @@
 
 <script>
     import cancel from "axios";
-    import _ from "lodash";
     import ClickbaitLabel from "./label/Clickbait.svelte";
     import SummaryLabel from "./label/Summary.svelte";
     import Spinner from 'svelte-spinner';
@@ -57,9 +56,9 @@
     let sortedHistories;
 
     $: getHistories($type);
-    $: sortedHistories = _.sortBy($history, function(label) {
-            return Date.parse(label.label.updated_at); 
-        }).reverse();
+    $: sortedHistories = $history.sort((a, b) => {
+            return new Date(b.label.updated_at) - new Date(a.label.updated_at); 
+        });
     $: labelComponent = $type == "clickbait" ? ClickbaitLabel : $type == "summary" ? SummaryLabel : null;
 
     async function getHistories(type) {

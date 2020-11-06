@@ -83,7 +83,7 @@
             {/if}
             {#each progress as item (item[0])}
                 <tr class="font-sans text-white font-normal text-xl">
-                    <td class="px-3 lg:px-6 py-4">{item[0]}</td>
+                    <td class="px-3 lg:px-6 py-4 leading-tight">{item[0]}</td>
                     {#each screenWidth < 640 ? item[1].slice(selected, selected+1) : item[1] as week}
                         <td class="px-3 lg:px-6 py-4">{week}</td>
                     {/each}
