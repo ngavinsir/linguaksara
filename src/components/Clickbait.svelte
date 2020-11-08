@@ -37,7 +37,7 @@
     }
 
     function openClickbaitSelector() {
-        openModal(ClickbaitSelector, {tokens: $article.headline.split(" ")}, {
+        openModal(ClickbaitSelector, {tokens: $article.headline.split(" ").filter(Boolean)}, {
             closeButton: false,
             styleWindow: {
                 backgroundColor: '#272727', 
