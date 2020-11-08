@@ -13,8 +13,8 @@
 	$: component = $type === "clickbait" ? Clickbait : $type === "summary" ? Summary : null;
 </script>
 
-<main>
-    <div class="flex flex-col items-center min-h-full font-sans leading-normal min-w-screen bg-dark-9">
+<main class="min-h-screen">
+    <div class="flex flex-col items-center min-h-screen font-sans leading-normal min-w-screen bg-dark-9">
         <Auth />
         {#if $jwt}
             <Onboarding />
