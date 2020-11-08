@@ -73,6 +73,10 @@
                     $doneOnboarding = true;
                 }
             } else {
+                if(error === 'you have reached your weekly label count limit') {
+                    showNotification("You have reached your weekly label count limit", 3000);
+                    return;
+                }
                 dispatch("retry");
                 showNotification("Terjadi kesalahan, silahkan coba lagi", 3000);
             }
