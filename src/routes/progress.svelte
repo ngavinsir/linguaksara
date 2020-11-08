@@ -120,6 +120,7 @@
     const startWeekDate = dayjs(startWeek).utc();
     const duration = 5;
     const weeks = [startWeekDate];
+    const students = ['MEI RIZQINAA ZAHARA LATIFA', 'HANIFAN AULIA', 'ADI NURSETYA PRATAMA', 'AISYAH MUHADDISI', 'ALAMSYAH IMANUDIN', 'ALMAS FAUZIA WIBAWA', 'FAQIH ETHANA P', 'MUHAMMAD MUKHTAR K', 'SULKHA MARFUAH', 'GHANIS DHIYAULHAQ', 'HAEKAL RAVI RASYID', 'RAYHAN NAUFAL RAMADHAN', 'AULIA RASYID', 'GENNARDO', 'L TARANGGA ARIEF G', 'LUIS TANOTO', 'MUHAMMAD KEVIN ROZAL', 'RETNO WATI', 'YOHANKRISTIAN P. T.', 'ARDACANDRA S', 'DIAZ SAUFA YARDHA', 'FRANCISCA C S', 'JUANDITO BATARA K', 'M VERDY RIZALDI N', 'MIFTAHUDDIN K U', 'PASKALIS HENRY S', 'RIZQI PANGESTU', 'SETYAWAN PUTRA S', 'SHERINE DEVI SUTOMO', 'VINCENT JUNITIO UNGU', 'ANDRE', 'AZHARA FATHIN', 'CHRYSTIAN', 'DONI TAN HERO', 'FAJAR KENICHI K P', 'KARUNIA EKA PUTRI', 'KHRESNA PANDU I', 'RAYMOND LUIS'];
 
     for(let i = 1; i < duration; i++) {
         weeks.push(weeks[i-1].add(1, 'w'));
@@ -147,6 +148,9 @@
         const newData = new Map();
         labelProgressWeeks.forEach(labelProgressWeek => {
             labelProgressWeek.forEach(labelProgress => {
+                if(!students.includes(labelProgress.name)) {
+                    return;
+                }
                 if(newData.get(labelProgress.name)) {
                     newData.get(labelProgress.name).push(labelProgress.progress);
                 } else {
