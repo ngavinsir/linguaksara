@@ -11,7 +11,7 @@
 <div class="flex flex-col bg-dark-8 items-center">
     <a href="/progress" class="hidden">progress</a>
     <h1 class="text-4xl sm:text-6xl mt-16 text-accent-3 font-serif font-bold">
-        linguaksara
+        clickbait
     </h1>
     <p
         class="font-sans mt-2 text-base sm:text-lg text-white max-w-xs sm:max-w-md text-center mb-16">
@@ -76,7 +76,7 @@
         </p>
         <a
             class="bt hover:bg-accent-7 px-8 py-4 font-bold font-sans"
-            href="app"
+            href="clickbait/app"
             rel="prefetch">
             Mulai melabel
         </a>
