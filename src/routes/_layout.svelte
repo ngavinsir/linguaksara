@@ -34,29 +34,25 @@
 
 {#if showNavBar}
   <div
-    class="bg-dark-7 fixed top-0 px-10 py-3 flex space-x-12 items-center w-full shadow-md z-10">
+    class="bg-dark-7 fixed top-0 px-3 sm:px-10 py-3 flex items-center w-full shadow-md z-10">
     <a
       href="/"
       rel="prefetch"
-      class="text-2xl sm:text-3xl text-accent-3 font-serif font-bold">
+      class="text-xl sm:text-3xl text-accent-3 font-serif font-bold mr-auto sm:mr-px">
       linguaksara
     </a>
-    <a
-      href="/"
-      rel="prefetch"
-      class="font-sans text-white text-xl hover:underline">Home</a>
     <div
-      class="relative ml-auto"
+      class="relative mr-6 sm:mr-12 sm:ml-20"
       on:mouseover={() => (showDropdown = true)}
       on:mouseout={() => (showDropdown = false)}>
-      <span class="font-sans text-white text-xl cursor-pointer"
+      <span class="font-sans text-white text-lg sm:text-xl cursor-pointer"
         >Researches</span>
       <div class={showDropdown ? "dropdown-wrapper" : "hidden"}>
         {#each researches as research}
           <a
             href={research.href}
             rel="prefetch"
-            class="font-sans text-white text-xl w-full hover:underline"
+            class="font-sans text-white text-lg sm:text-xl w-full hover:underline"
             >{research.display}</a>
         {/each}
       </div>
@@ -65,7 +61,8 @@
     <a
       href="/contact"
       rel="prefetch"
-      class="font-sans text-white text-xl hover:underline">Contact</a>
+      class="font-sans text-white text-lg sm:text-xl hover:underline"
+      >Contact</a>
   </div>
 {/if}
 
