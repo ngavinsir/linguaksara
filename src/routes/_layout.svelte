@@ -57,12 +57,6 @@
         {/each}
       </div>
     </div>
-
-    <a
-      href="/contact"
-      rel="prefetch"
-      class="font-sans text-white text-lg sm:text-xl hover:underline"
-      >Contact</a>
   </div>
 {/if}
 

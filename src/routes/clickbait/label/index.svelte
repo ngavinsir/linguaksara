@@ -70,7 +70,7 @@
     </p>
     <a
       class="bt hover:bg-accent-7 px-8 py-4 font-bold font-sans"
-      href="clickbait/app"
+      href="clickbait/label/app"
       rel="prefetch">
       Mulai melabel
     </a>
