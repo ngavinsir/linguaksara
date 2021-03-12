@@ -1,4 +1,7 @@
 <script>
+  import Modal from "../components/Modal.svelte";
+  import Notification from "../components/Notification.svelte";
+  import Axios from "../components/Axios.svelte";
   import { setContext } from "svelte";
 
   const researches = [
@@ -60,9 +63,15 @@
   </div>
 {/if}
 
-<div class={showNavBar ? "pt-12" : ""}>
-  <slot />
-</div>
+<Modal>
+  <Notification>
+    <Axios>
+      <div class={showNavBar ? "pt-12" : ""}>
+        <slot />
+      </div>
+    </Axios>
+  </Notification>
+</Modal>
 
 <style type="text/postcss">
   .dropdown-wrapper {

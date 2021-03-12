@@ -9,5 +9,6 @@
     <a href="/clickbait/label" class="hover:underline">Labeling platform</a>
     <a href="/clickbait/visualization" class="hover:underline"
       >Data visualization</a>
+    <a href="/clickbait/demo" class="hover:underline">Demo</a>
   </div>
 </div>
